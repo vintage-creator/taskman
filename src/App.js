@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Router from "./Router/Router";
+import { useTheme} from "switch-mode";
 
 function App() {
+const {theme} = useTheme();
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{backgroundColor: theme === "light" ? "#080910" : "white",
+    color: theme === "light" ? "white" : "#080910",
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: "20px"}} className='App'>
+      <Router/>
     </div>
   );
 }
